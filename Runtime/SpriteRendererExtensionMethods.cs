@@ -13,7 +13,7 @@ namespace Kogane
 
         public static Vector2 GetSize( this SpriteRenderer self )
         {
-            return new Vector2( self.GetWidth(), self.GetHeight() );
+            return new( self.GetWidth(), self.GetHeight() );
         }
 
         public static float GetWidth( this SpriteRenderer self )
