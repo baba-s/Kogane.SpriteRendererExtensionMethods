@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Kogane
 {
@@ -47,6 +48,27 @@ namespace Kogane
         {
             if ( self == null ) return;
             self.color = color;
+        }
+
+        public static void SetColorWithoutAlphaIfNotNull( this SpriteRenderer self, in Color color )
+        {
+            if ( self == null ) return;
+
+            self.color = new
+            (
+                r: color.r,
+                g: color.g,
+                b: color.b,
+                a: self.color.a
+            );
+        }
+
+        public static void SetColor( this IReadOnlyList<SpriteRenderer> self, in Color color )
+        {
+            foreach ( var x in self )
+            {
+                x.color = color;
+            }
         }
     }
 }
